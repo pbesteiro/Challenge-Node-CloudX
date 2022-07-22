@@ -1,13 +1,13 @@
 {
   "name": "crud-express",
   "version": "0.1.0",
-  "description": "A CRUD example using expressjs",
-  "main": "index.js",
+  "description": "Challenge from C# to NodeJs - CloudX",
+  "main": "index.ts",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.ts",
     "test": "sh test.sh"
   },
-  "author": "Axel Navarro (navarroaxel@gmail.com)",
+  "author": "Pablo Besteiro (pablobesteiro@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
