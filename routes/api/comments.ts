@@ -1,6 +1,7 @@
-const {CommentController} = require('../../controllers');
+import {Router} from 'express';
+import {CommentController} from '../../controllers';
 
-module.exports = router => {
+const commentsApi = (router: Router) => {
     router.get('/:id', CommentController.fetch);
     router.post('/', CommentController.create);
     router.put('/:id', CommentController.update);
@@ -8,3 +9,4 @@ module.exports = router => {
 
     return router;
 };
+export default commentsApi;

@@ -1,9 +1,10 @@
-const {CommentService} = require('../services');
+import {Request, Response, NextFunction} from 'express';
+import {CommentService} from '../services';
 
 const commentService = new CommentService();
 
 class CommentController {
-  static async fetch(req, res, next) {
+  static async fetch(req: Request, res: Response, next: NextFunction) {
     try {
       res.send(await commentService.fetch(req.params.id));
     } catch (err) {
@@ -11,7 +12,7 @@ class CommentController {
     }
   }
 
-  static async create(req, res, next) {
+  static async create(req: Request, res: Response, next: NextFunction) {
     try {
       res.status(201).send(await commentService.create(req.body.comment));
     } catch (err) {
@@ -19,7 +20,7 @@ class CommentController {
     }
   }
 
-  static async update(req, res, next) {
+  static async update(req: Request, res: Response, next: NextFunction) {
     try {
       res.status(200).send(await commentService.update(req.params.id, req.body.comment));
     } catch (err) {
@@ -27,15 +28,7 @@ class CommentController {
     }
   }
 
-  static async find(req, res, next) {
-    try {
-      res.send(await commentService.find(req.params.id));
-    } catch (err) {
-      next(err);
-    }
-  }
-
-  static async remove(req, res, next) {
+  static async remove(req: Request, res: Response, next: NextFunction) {
     try {
         res.status(200).send(await commentService.remove(req.params.id));
      
@@ -45,4 +38,4 @@ class CommentController {
   }
 }
 
-module.exports = CommentController;
+export default CommentController;

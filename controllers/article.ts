@@ -1,9 +1,10 @@
-const {ArticleService} = require('../services');
+import {Request, Response, NextFunction} from 'express';
+import {ArticleService} from '../services';
 
 const articleService = new ArticleService();
 
 class ArticleController {
-  static async fetch(req, res, next) {
+  static async fetch(req: Request, res: Response, next: NextFunction) {
     try {
       res.send(await articleService.fetch());
     } catch (err) {
@@ -11,7 +12,7 @@ class ArticleController {
     }
   }
 
-  static async create(req, res, next) {
+  static async create(req: Request, res: Response, next: NextFunction) {
     try {
       res.status(201).send(await articleService.create(req.body.article));
     } catch (err) {
@@ -19,7 +20,7 @@ class ArticleController {
     }
   }
 
-  static async update(req, res, next) {
+  static async update(req: Request, res: Response, next: NextFunction) {
     try {
       res.status(200).send(await articleService.update(req.params.id, req.body.article));
     } catch (err) {
@@ -27,7 +28,7 @@ class ArticleController {
     }
   }
 
-  static async find(req, res, next) {
+  static async find(req: Request, res: Response, next: NextFunction) {
     try {
       res.send(await articleService.find(req.params.id));
     } catch (err) {
@@ -35,7 +36,7 @@ class ArticleController {
     }
   }
 
-  static async remove(req, res, next) {
+  static async remove(req: Request, res: Response, next: NextFunction) {
     try {
         res.status(200).send(await articleService.remove(req.params.id));
      
@@ -45,4 +46,4 @@ class ArticleController {
   }
 }
 
-module.exports = ArticleController;
+export default ArticleController;
