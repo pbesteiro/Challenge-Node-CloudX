@@ -13,7 +13,7 @@ class ArticleController {
 
   static async create(req, res, next) {
     try {
-      res.send(await articleService.create(req.body.article));
+      res.status(201).send(await articleService.create(req.body.article));
     } catch (err) {
       next(err);
     }
@@ -21,7 +21,7 @@ class ArticleController {
 
   static async update(req, res, next) {
     try {
-      res.send(await articleService.update(req.params.id, req.body.article));
+      res.status(200).send(await articleService.update(req.params.id, req.body.article));
     } catch (err) {
       next(err);
     }
@@ -37,7 +37,7 @@ class ArticleController {
 
   static async remove(req, res, next) {
     try {
-        res.send(await articleService.remove(req.body.id));
+        res.status(200).send(await articleService.remove(req.params.id));
      
     } catch (err) {
       next(err);
