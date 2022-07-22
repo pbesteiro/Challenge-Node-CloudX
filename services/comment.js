@@ -8,10 +8,12 @@ class CommentService {
     }
 
     create(comment){
+        comment.createAt=new Date();
         return Comment.create(comment);
     }
 
     update(id,comment){
+        comment.updateAt=new Date();
         return Comment.findByIdAndUpdate(id,comment).lean().exec();
     }
 
